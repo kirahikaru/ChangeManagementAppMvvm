@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{CE233AA7-E29A-4CCE-802F-43AD3A36426F}"
+	ProjectSection(SolutionItems) = preProject
+		Components\EntityFramework.dll = Components\EntityFramework.dll
+		Components\EntityFramework.SqlServer.dll = Components\EntityFramework.SqlServer.dll
+		Components\EntityFramework.SqlServer.xml = Components\EntityFramework.SqlServer.xml
+		Components\EntityFramework.xml = Components\EntityFramework.xml
+		Components\Microsoft.Practices.Unity.Configuration.dll = Components\Microsoft.Practices.Unity.Configuration.dll
+		Components\Microsoft.Practices.Unity.Configuration.XML = Components\Microsoft.Practices.Unity.Configuration.XML
+		Components\Microsoft.Practices.Unity.dll = Components\Microsoft.Practices.Unity.dll
+		Components\Microsoft.Practices.Unity.RegistrationByConvention.dll = Components\Microsoft.Practices.Unity.RegistrationByConvention.dll
+		Components\Microsoft.Practices.Unity.RegistrationByConvention.XML = Components\Microsoft.Practices.Unity.RegistrationByConvention.XML
+		Components\Microsoft.Practices.Unity.xml = Components\Microsoft.Practices.Unity.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS_WPF_STD_UI", "CMS_WPF_STD_UI\CMS_WPF_STD_UI.csproj", "{D9C900C0-4C39-4A0F-A100-B511CA16F918}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{BB0FB6B1-DF68-41F8-BAE5-F50B3248AA3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS_WPF_MOD_UI", "CMS_WPF_MOD_UI\CMS_WPF_MOD_UI.csproj", "{02432F26-E3BC-4A8E-BC74-F3164081CE46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D9C900C0-4C39-4A0F-A100-B511CA16F918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C900C0-4C39-4A0F-A100-B511CA16F918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C900C0-4C39-4A0F-A100-B511CA16F918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C900C0-4C39-4A0F-A100-B511CA16F918}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0FB6B1-DF68-41F8-BAE5-F50B3248AA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0FB6B1-DF68-41F8-BAE5-F50B3248AA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0FB6B1-DF68-41F8-BAE5-F50B3248AA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0FB6B1-DF68-41F8-BAE5-F50B3248AA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02432F26-E3BC-4A8E-BC74-F3164081CE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02432F26-E3BC-4A8E-BC74-F3164081CE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02432F26-E3BC-4A8E-BC74-F3164081CE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02432F26-E3BC-4A8E-BC74-F3164081CE46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

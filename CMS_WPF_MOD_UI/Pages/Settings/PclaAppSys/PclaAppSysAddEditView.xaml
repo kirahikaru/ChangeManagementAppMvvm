@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="ChangeManagementAppModern.Pages.Settings.PclaAppSysAddEditView"
+             xmlns:conv="clr-namespace:ChangeManagementAppModern.Converters"
+             xmlns:locext="clr-namespace:ChangeManagementAppModern.Extensions"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+			 xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             MinHeight="60" MaxHeight="300"
+             d:DesignHeight="800" d:DesignWidth="1300" FontSize="12">
+    <UserControl.Resources>
+        <conv:NegatableBooleanToVisibilityConverter x:Key="VisibilityConvert" />
+        <conv:NegatableBooleanToVisibilityConverter x:Key="NegateVisibilityConverter" Negate="True" />
+        <!--<Style TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="true" >
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="4,4,15,4" />
+            <Setter Property="Validation.ErrorTemplate" Value="{StaticResource TextBoxErrorTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError"
+                         Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors).CurrentItem.ErrorContent"
+                                     RelativeSource="{x:Static RelativeSource.Self}" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <ei:CallMethodAction TargetObject="{Binding}" MethodName="LoadObject" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <StackPanel>
+            <StackPanel >
+                <StackPanel DataContext="{Binding WrapperObj, ValidatesOnNotifyDataErrors=True}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="App/Sys Code*:" Style="{StaticResource CaptionMandatory}" 
+                               ToolTip="Application/System Code"></TextBlock>
+                        <TextBox x:Name="tbCode" Text="{Binding Code, ValidatesOnNotifyDataErrors=True}"
+                             locext:FocusExtension.IsFocused="{Binding IsCodeFocused}"
+                             ToolTip="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                             CharacterCasing="Upper" Height="28" MaxLength="20" VerticalContentAlignment="Center" Width="100">
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}" CommandParameter="Code" />
+                            </TextBox.InputBindings>
+                        </TextBox>
+                        <TextBlock Text="App/Sys Type Code*: " Width="120" Style="{StaticResource CaptionMandatory}" 
+                               ToolTip="PCLA Application/System Type Code">
+                        </TextBlock>
+                        <TextBox x:Name="tbTypeCode" Text="{Binding TypeCode, ValidatesOnNotifyDataErrors=True}"
+                             locext:FocusExtension.IsFocused="{Binding IsTypeCodeFocused}"
+                             ToolTip="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                             CharacterCasing="Upper" Height="28" MaxLength="20" VerticalContentAlignment="Center" Width="100" >
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}" CommandParameter="TypeCode" />
+                            </TextBox.InputBindings>
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="App/Sys Name*:" Style="{StaticResource CaptionMandatory}" 
+                               ToolTip="Application / System Name."/>
+                        <TextBox Text="{Binding Name, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+                             locext:FocusExtension.IsFocused="{Binding IsNameFocused}"
+                             ToolTip="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                             Height="28" MaxLength="150" VerticalContentAlignment="Center" Width="400" >
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}" CommandParameter="Name" />
+                            </TextBox.InputBindings>
+                        </TextBox>
+                    </StackPanel >
+                    <DockPanel>
+                        <TextBlock Text="Latest Version*:" Style="{StaticResource CaptionMandatory}" />
+                        <TextBox Text="{Binding Version, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+                             locext:FocusExtension.IsFocused="{Binding IsVersionFocused}"
+                             ToolTip="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                             Height="28" MaxLength="10" Width="100"
+                             VerticalContentAlignment="Center" HorizontalAlignment="Left" >
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}" CommandParameter="Version" />
+                            </TextBox.InputBindings>
+                        </TextBox>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock Text="Remark:" Style="{StaticResource CaptionNonMandatory}" />
+                        <TextBox Text="{Binding LatestVersion, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" 
+                             ToolTip="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}"
+                             Height="28" MaxLength="500" VerticalContentAlignment="Center" HorizontalAlignment="Stretch" >
+                        </TextBox>
+                    </DockPanel>
+                </StackPanel>
+            </StackPanel>
+            <DockPanel Height="30" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" >
+                        <TextBlock Text="Created on: " Foreground="Gray" />
+                        <TextBlock Text="{Binding CreatedDateTime}" Foreground="Gray" />
+                        <TextBlock Text="Created by: " Margin="20,0,0,0" Foreground="Gray" />
+                        <TextBlock Text="{Binding CreatedUser}" Foreground="Gray" />
+                        <TextBlock Text="Last modified on: " Margin="20,0,0,0" Foreground="Gray" />
+                        <TextBlock Text="{Binding LastModifiedDateTime}" Foreground="Gray" />
+                        <TextBlock Text="Last modified by: " Margin="20,0,0,0" Foreground="Gray" />
+                        <TextBlock Text="{Binding LastModifiedUser}" Foreground="Gray" />
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="_ADD" Margin="2.5,0,2.5,0" 
+                        Command="{Binding SaveCommand}" Visibility="{Binding IsEditMode, Converter={StaticResource NegateVisibilityConverter}}"/>
+                        <Button Content="_SAVE" Margin="2.5,0,2.5,0" 
+                        Command="{Binding SaveCommand}" Visibility="{Binding IsEditMode, Converter={StaticResource VisibilityConvert}}" />
+                        <Button Content="_CANCEL" Margin="2.5,0,2.5,0" 
+                        Command="{Binding CancelCommand}" />
+                    </StackPanel>
+                </Grid>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
